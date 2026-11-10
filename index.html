@@ -1931,7 +1931,7 @@ E("u2-64-h-from-ph",2,["6.4"],2,"gen",function(){
   var dec=mm[1];
   var sample=pick(["lemon juice","a soft drink","tomato juice","rainwater","a shampoo solution","black coffee"]);
   var ans=sfR(H,3);
-  return numq("A sample of "+sample+" has a pH of "+phF(pH,dec)+". Calculate [H\u2083O\u207A] in the sample. Give your answer in mol/L.",
+  return numq("A sample of "+sample+" has a pH of "+phF(pH,dec)+". Calculate [H\u2083O\u207A] in the sample. Give your answer in mol/L, as a decimal or in scientific notation (for example 5.56e-10).",
     ans,Math.max(0.06*ans,1e-12),
     "[H\u2083O\u207A] = 10^-pH = 10^("+("-"+phF(pH,dec))+") = "+sciF(H,4)+" mol/L. So [H\u2083O\u207A] = <b>"+sciF(ans,3)+" mol/L</b>.",{e:e});
 });
@@ -2104,7 +2104,7 @@ E("u2-65-ka-from-ph",2,["6.5"],3,"gen",function(){
   var pH=-Math.log10(h);
   var Ka=(h*h)/(C-h);
   var ans=sfR(Ka,3);
-  return numq("A "+gF(C)+" mol/L solution of the weak acid "+p.name+" has a pH of "+phF(pH,3)+". Calculate the Ka of the acid.",
+  return numq("A "+gF(C)+" mol/L solution of the weak acid "+p.name+" has a pH of "+phF(pH,3)+". Calculate the Ka of the acid. Give your answer as a decimal or in scientific notation (for example 5.56e-10).",
     ans,Math.max(0.07*ans,1e-13),
     "[H\u2083O\u207A] = 10^-pH = 10^("+"-"+phF(pH,3)+") = "+sciF(h,3)+" mol/L. At equilibrium [A\u207B] = [H\u2083O\u207A] and [HA] = "+gF(C)+" - "+sciF(h,3)+" mol/L. Ka = [H\u2083O\u207A][A\u207B] / [HA] = ("+sciF(h,3)+")\u00B2 / ("+gF(C)+" - "+sciF(h,3)+") = "+sciF(Ka,4)+". So Ka = <b>"+sciF(ans,3)+"</b>.",{});
 });
@@ -2212,7 +2212,7 @@ E("u2-66-kb-from-ka",2,["6.6"],2,"gen",function(){
     var p=pick(pairs);
     var Kb=1.0e-14/p.ka;
     var ans=sfR(Kb,3);
-    return numq("At 25 \u00B0C, the Ka of "+p.acid+" is "+sciF(p.ka,2)+". Calculate the Kb of its conjugate base, "+p.base+".",
+    return numq("At 25 \u00B0C, the Ka of "+p.acid+" is "+sciF(p.ka,2)+". Calculate the Kb of its conjugate base, "+p.base+". Give your answer as a decimal or in scientific notation (for example 5.56e-10).",
       ans,Math.max(0.03*ans,1e-13),
       "For a conjugate acid-base pair, Ka \u00D7 Kb = Kw = 1.0 \u00D7 10\u207B\u00B9\u2074 at 25 \u00B0C. Kb = 1.0 \u00D7 10\u207B\u00B9\u2074 / "+sciF(p.ka,2)+" = "+sciF(Kb,4)+". So Kb = <b>"+sciF(ans,3)+"</b>.",{named:1});
   }
@@ -2220,7 +2220,7 @@ E("u2-66-kb-from-ka",2,["6.6"],2,"gen",function(){
   var Ka=mant*Math.pow(10,ex);
   var Kb2=1.0e-14/Ka;
   var ans2=sfR(Kb2,3);
-  return numq("A weak acid HA has Ka = "+sciF(Ka,2)+" at 25 \u00B0C. Calculate the Kb of its conjugate base, A\u207B.",
+  return numq("A weak acid HA has Ka = "+sciF(Ka,2)+" at 25 \u00B0C. Calculate the Kb of its conjugate base, A\u207B. Give your answer as a decimal or in scientific notation (for example 5.56e-10).",
     ans2,Math.max(0.03*ans2,1e-13),
     "For a conjugate acid-base pair, Ka \u00D7 Kb = Kw = 1.0 \u00D7 10\u207B\u00B9\u2074 at 25 \u00B0C. Kb = 1.0 \u00D7 10\u207B\u00B9\u2074 / "+sciF(Ka,2)+" = "+sciF(Kb2,4)+". So Kb = <b>"+sciF(ans2,3)+"</b>.",{named:0});
 });
@@ -2989,7 +2989,7 @@ E("u3-77-q-phase",3,["7.7"],2,"gen",function(){
     var m=pick([10.0,12.0,15.0,18.0,20.0,25.0,30.0,40.0,50.0,60.0,75.0,80.0,90.0,100]);
     var ctx=pick(["in a calorimetry experiment","in a classroom demonstration","in an insulated container"]);
     var q=sfR(m*per,4),ans=sfR(m*per,3);
-    return numq((fus?"A sample of ice at 0 \u00B0C melts completely with no temperature change "+ctx+". The mass of the ice is ":"A sample of liquid water at 100 \u00B0C vaporizes completely with no temperature change "+ctx+". The mass of the water is ")+gF(m)+" g. Using "+(fus?"\u0394Hfus = 334 J/g":"\u0394Hvap = 2.26 \u00D7 10\u00B3 J/g")+" from the Reference Information, calculate the heat required. Give your answer in J.",
+    return numq((fus?"A sample of ice at 0 \u00B0C melts completely with no temperature change "+ctx+". The mass of the ice is ":"A sample of liquid water at 100 \u00B0C vaporizes completely with no temperature change "+ctx+". The mass of the water is ")+gF(m)+" g. Using "+(fus?"\u0394Hfus = 334 J/g":"\u0394Hvap = 2.26 \u00D7 10\u00B3 J/g")+" from the Reference Information, calculate the heat required. Give your answer in J, as a decimal or in scientific notation (for example 2.26e5).",
       ans,Math.max(0.02*ans,5),
       "No temperature change occurs during a phase change, so q = m \u00D7 "+(fus?"\u0394Hfus":"\u0394Hvap")+" = "+gF(m)+" g \u00D7 "+(fus?"334":"2.26 \u00D7 10\u00B3")+" J/g = "+iF(q)+" J. The heat required is <b>"+F3(ans)+" J</b>.",{mode:mode});
   }
@@ -4746,6 +4746,7 @@ function startOnline(){
       html+='<div class="opts">'+q.options.map(function(o,j){return '<label><input type="radio" name="opt'+i+'" value="'+j+'"> <span>'+o+'</span></label>';}).join("")+'</div>';
     }else{
       html+='<p>Your answer: <input type="text" class="ans" id="ans'+i+'" autocomplete="off"></p>';
+      if(q.type==="num")html+='<p class="hint">Very small or large answers can be typed like 7.94e-9.</p>';
     }
     html+='<p><button type="button" data-check="'+i+'">Check</button> <button type="button" class="alt" data-ex="'+i+'">See a worked example</button> <button type="button" class="alt" data-sol="'+i+'">Show worked solution</button></p><div class="fb" id="fb'+i+'"></div><div class="exbox" id="ex'+i+'" hidden></div><div class="sol" id="sol'+i+'"><b>Worked solution:</b> '+stepHTML(q.solution)+'</div>'
       +'<p class="reprow"><button type="button" class="alt repbtn" data-rep="'+i+'">Report a problem</button></p>'
